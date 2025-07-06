@@ -1,0 +1,128 @@
+/* Reset */
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+  overflow: hidden;
+}
+
+/* Container: full screen */
+.container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Title and Score */
+.title {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.scoreboard {
+  display: flex;
+  gap: 20px;
+  margin: 10px 0 30px;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* Choices */
+.choices {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.choice-btn {
+  font-size: 3.5rem;
+  background-color: #fff;
+  border: 2px solid #333;
+  border-radius: 20px;
+  padding: 20px 30px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.choice-btn:hover {
+  background-color: #ffe5d9;
+  transform: scale(1.1) rotate(-5deg);
+}
+
+/* Result Section */
+.result-section {
+  animation: fadeIn 0.5s ease-in;
+}
+
+.result-text {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+}
+
+/* Hands display */
+.hands-display {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.player {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hand-icon {
+  font-size: 6rem;
+  margin: 10px 0;
+  transition: transform 0.3s ease;
+}
+
+.bounce {
+  animation: bounce 0.5s ease-in-out;
+}
+
+/* Play again */
+.play-again {
+  font-size: 1.2rem;
+  background-color: #000;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 25px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.play-again:hover {
+  background-color: #333;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}

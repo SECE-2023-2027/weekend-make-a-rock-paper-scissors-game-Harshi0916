@@ -1,0 +1,114 @@
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Poppins:wght@400;600&display=swap');
+
+/* Global */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #fad0c4, #a1c4fd, #c2e9fb);
+  background-size: 400% 400%;
+  animation: gradientBG 12s ease infinite;
+  color: #fff;
+}
+
+/* Background Animation */
+@keyframes gradientBG {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+
+/* Main Game Container */
+.container {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 25px;
+  padding: 40px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  max-width: 500px;
+  width: 90%;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  animation: floatUp 2s ease;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+/* Heading */
+h1 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.5rem;
+  margin-bottom: 25px;
+  color: #ffffff;
+  text-shadow: 0 0 10px #ffffff66;
+}
+
+/* Choice Buttons */
+.choice-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid #ffffff55;
+  border-radius: 15px;
+  padding: 15px 25px;
+  font-size: 1.2rem;
+  margin: 10px;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+  backdrop-filter: blur(4px);
+}
+
+.choice-btn:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+  color: #111;
+  box-shadow: 0 0 15px #ffffff88;
+  transform: scale(1.1);
+}
+
+/* Result Display */
+.result {
+  font-size: 1.5rem;
+  margin-top: 25px;
+  color: #fff;
+  text-shadow: 0 0 8px #fff;
+}
+
+/* Emoji / Icons */
+.emoji-display {
+  font-size: 3rem;
+  margin-top: 15px;
+}
+
+/* Responsive */
+@media screen and (max-width: 480px) {
+  .container {
+    padding: 25px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .choice-btn {
+    padding: 12px 20px;
+    font-size: 1rem;
+  }
+}

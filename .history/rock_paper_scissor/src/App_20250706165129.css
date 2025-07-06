@@ -1,0 +1,238 @@
+/* Define a consistent color palette using CSS variables */
+:root {
+  --primary-bg: #f8e7ff; /* Soft lavender background */
+  --accent-gradient: linear-gradient(90deg, #ff6b6b, #ff8e53); /* Vibrant coral to orange gradient */
+  --button-bg: #ff4d4d; /* Bright coral for buttons */
+  --button-hover: #e63939; /* Darker coral for hover */
+  --text-primary: #2d1b4e; /* Deep indigo for main text */
+  --text-secondary: #4a3a6b; /* Muted purple for secondary text */
+  --card-bg: rgba(255, 255, 255, 0.7); /* Semi-transparent white for cards */
+  --shadow-color: rgba(80, 50, 120, 0.3); /* Subtle purple shadow */
+  --highlight: #ffd700; /* Gold for emphasis (e.g., win state) */
+}
+
+/* Base Setup */
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-family: 'Segoe UI', sans-serif;
+  overflow: hidden;
+  background-color: var(--primary-bg); /* Updated to soft lavender */
+  position: relative;
+}
+
+/* Background SVG Container */
+.game-wrapper {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.background-shape {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+}
+
+/* Start Screen */
+.start-screen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  height: 100vh;
+  width: 100vw;
+  background: var(--card-bg); /* Semi-transparent white with blur */
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.6s ease-in;
+  text-align: center;
+}
+
+.start-screen h1 {
+  font-size: 2.5rem;
+  color: var(--text-primary); /* Deep indigo for better contrast */
+}
+
+.start-screen h2 {
+  font-size: 3rem;
+  background: var(--accent-gradient); /* Updated gradient for vibrancy */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 10px 0;
+}
+
+.start-screen p {
+  font-size: 1.2rem;
+  color: var(--text-secondary); /* Muted purple for secondary text */
+  margin-bottom: 30px;
+}
+
+.start-btn {
+  font-size: 1.2rem;
+  padding: 12px 24px;
+  background-color: var(--button-bg); /* Bright coral button */
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.start-btn:hover {
+  background-color: var(--button-hover); /* Darker coral on hover */
+  transform: scale(1.05); /* Subtle scale for interactivity */
+}
+
+/* Main Container */
+.container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+  z-index: 2;
+  position: relative;
+}
+
+.title {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  background: var(--accent-gradient); /* Consistent gradient with start screen */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: var(--text-secondary); /* Muted purple for subtitle */
+}
+
+.scoreboard {
+  display: flex;
+  gap: 20px;
+  margin: 10px 0 30px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--text-primary); /* Deep indigo for scoreboard */
+}
+
+/* Choices */
+.choices {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.choice-btn {
+  font-size: 3.5rem;
+  background: var(--card-bg); /* Semi-transparent white for buttons */
+  border: 2px solid #ff8e53; /* Orange border for consistency */
+  border-radius: 20px;
+  padding: 20px 30px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 6px 20px var(--shadow-color); /* Updated shadow color */
+}
+
+.choice-btn:hover {
+  background-color: #fff3e6; /* Light peach on hover */
+  transform: scale(1.1) rotate(-5deg);
+}
+
+/* Result Section */
+.result-section {
+  background: var(--card-bg); /* Consistent semi-transparent background */
+  border-radius: 20px;
+  box-shadow: 0 8px 32px var(--shadow-color); /* Updated shadow */
+  backdrop-filter: blur(10px);
+  padding: 40px;
+  animation: fadeIn 0.5s ease-in;
+  margin-top: 20px;
+}
+
+.result-text {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  color: var(--button-bg); /* Coral for result text */
+}
+
+/* Highlight win/lose/draw states */
+.result-text.win {
+  color: var(--highlight); /* Gold for win */
+}
+
+.result-text.lose {
+  color: #ff4040; /* Red for lose */
+}
+
+.result-text.draw {
+  color: #6b7280; /* Gray for draw */
+}
+
+.hands-display {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.player {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hand-icon {
+  font-size: 6rem;
+  margin: 10px 0;
+  transition: transform 0.3s ease;
+}
+
+.bounce {
+  animation: bounce 0.5s ease-in-out;
+}
+
+.play-again {
+  font-size: 1.2rem;
+  background-color: var(--button-bg); /* Coral for play-again button */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 25missing
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s;
+}
+
+.play-again:hover {
+  background-color: var(--button-hover); /* Darker coral on hover */
+  transform: scale(1.05);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
